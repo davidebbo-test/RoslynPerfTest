@@ -35,10 +35,8 @@ namespace MyNamespace {
             var start = DateTime.Now;
             for (int i = 0; i < 5000; i++) {
                 var assembly = compilingMethod(TestCode, "TestAssembly" + i);
-                //Console.WriteLine(assembly.FullName);
 
                 var testClass = assembly.CreateInstance("MyNamespace.MyTestClass");
-                //Console.WriteLine(testClass.GetType());
             }
             Console.WriteLine(DateTime.Now - start);
 
@@ -66,8 +64,7 @@ namespace MyNamespace {
                 }
             }
 
-            var assembly = Assembly.Load(memStream.GetBuffer());
-            return assembly;
+            return Assembly.Load(memStream.GetBuffer());
         }
 
         private static Assembly CompileCodeIntoAssemblyUsingCodeDom(string code, string assemblyName) {
